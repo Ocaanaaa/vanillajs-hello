@@ -5,36 +5,38 @@ import "./style.css";
 import "./assets/img/rigo-baby.jpg";
 import "./assets/img/4geeks.ico";
 
-window.onload = function() {
-  //write your code here
+let who = ["The dog", "My grandma ", "The mailman ", "My bird "];
+let action = [" ate ", " peed ", " crushed ", " broke "];
+let what = ["my homework ", "my phone ", "the car "];
+let when = [
+  "before the class",
+  "when I was sleeping",
+  "while I was exercising",
+  "during my lunch",
+  "while I was praying"
+];
 
-  document.querySelector(".btn").addEventListener("click", () => {
-    document.getElementById("excuse").innerText = MainRandom();
-  });
+function generateRandomIndex(length) {
+  return Math.floor(Math.random() * length);
+}
 
-  function MainRandom() {
-    let who = ["The dog", "My grandma", "The mailman", "My bird"];
-    let action = ["ate", "peed", "crushed", "broke"];
-    let what = ["my homework", "my phone", "the car"];
-    let when = [
-      "before the class",
-      "when I was sleeping",
-      "while I was exercising",
-      "during my lunch",
-      "while I was praying"
-    ];
-    function RandomGenerator(list) {
-      return list[Math.floor(Math.random() * list.length)];
-    }
+function myFunction() {
+  let random1 = generateRandomIndex(who.length);
 
-    return (
-      RandomGenerator(who) +
-      " " +
-      RandomGenerator(action) +
-      " " +
-      RandomGenerator(what) +
-      " " +
-      RandomGenerator(when)
-    );
-  }
-};
+  let random2 = generateRandomIndex(action.length);
+
+  let random3 = generateRandomIndex(what.length);
+
+  let random4 = generateRandomIndex(when.length);
+
+  document.getElementById("excuse").innerHTML =
+    who[random1] +
+    " " +
+    action[random2] +
+    " " +
+    what[random3] +
+    " " +
+    when[random4] +
+    " ";
+}
+myFunction();
